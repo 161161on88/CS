@@ -1,6 +1,6 @@
 [
   { "year": "2026", "name": "EPL S23", "winner": "-", "finalist": "-", "score": "-" },
-  { "year": "2026", "name": "PGL 克盧日納波卡 2026", "winner": "Team Spirit", "finalist": "G2 Esports", "score": "3-1" },
+  { "year": "2026", "name": "PGL 克盧日納波卡 2026", "winner": "Team Vitality", "finalist": "PARIVISION", "score": "3-0" },
   { "year": "2026", "name": "IEM 克拉科夫 2026", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "3-2" },
   { "year": "2026", "name": "BLAST 賞金賽 2026 S1", "winner": "PARIVISION", "finalist": "Team Spirit", "score": "3-2" },
 
@@ -79,3 +79,4 @@
   { "year": "2022", "name": "ESL Pro League S15", "winner": "FaZe Clan", "finalist": "ENCE", "score": "3-1" },
   { "year": "2022", "name": "IEM 卡托維茲 2022", "winner": "FaZe Clan", "finalist": "G2 Esports", "score": "3-0" }
 ]
+
