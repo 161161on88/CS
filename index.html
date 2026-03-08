@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 賽事大數據紀錄板</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .winner-text { color: #b45309; font-weight: bold; }
+        .score-badge { background: #334155; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; }
+        .sticky-header { position: sticky; top: 0; background: white; z-index: 10; border-bottom: 2px solid #e2e8f0; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-4">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden mt-6">
+        <div class="bg-slate-800 text-white p-6">
+            <h1 class="text-2xl font-bold">CS 職業賽事紀錄資料庫</h1>
+            <p class="text-slate-400 text-sm mt-1">2022 - 2026 S-Tier 賽事結果彙整</p>
+        </div>
+
+        <div class="p-4 flex flex-col md:flex-row gap-4 items-center justify-between border-b">
+            <input type="text" id="searchInput" placeholder="搜尋賽事或戰隊 (例如: Spirit, Major)..." 
+                   class="w-full md:w-1/2 p-2 border rounded-lg focus:ring-2 focus:ring-slate-500 outline-none">
+            <div class="text-sm font-semibold text-slate-500">
+                顯示條目：<span id="count">0</span>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead class="sticky-header">
+                    <tr class="text-slate-600 text-sm uppercase">
+                        <th class="p-4">年份</th>
+                        <th class="p-4">賽事名稱</th>
+                        <th class="p-4">冠軍 (Winner)</th>
+                        <th class="p-4">亞軍 (Finalist)</th>
+                        <th class="p-4 text-center">比分</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody" class="divide-y divide-slate-100 text-gray-700">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allData = [];
+
+        async function init() {
+            try {
+                const response = await fetch('data.json');
+                allData = await response.json();
+                renderTable(allData);
+            } catch (err) {
+                console.error("無法加載 data.json", err);
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = data.map(item => `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="p-4 text-slate-400 font-medium">${item.year}</td>
+                    <td class="p-4 font-semibold text-slate-800">${item.name}</td>
+                    <td class="p-4">${item.winner !== '-' ? '<span class="winner-text">🏆 ' + item.winner + '</span>' : '-'}</td>
+                    <td class="p-4 text-slate-600">${item.finalist}</td>
+                    <td class="p-4 text-center"><span class="score-badge">${item.score}</span></td>
+                </tr>
+            `).join('');
+            document.getElementById('count').innerText = data.length;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allData.filter(i => 
+                i.name.toLowerCase().includes(term) || 
+                i.winner.toLowerCase().includes(term) || 
+                i.finalist.toLowerCase().includes(term)
+            );
+            renderTable(filtered);
+        });
+
+        init();
+    </script>
+</body>
+</html>
