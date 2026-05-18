@@ -606,7 +606,7 @@
     "year": "2022",
     "name": "BLAST Premier 全球總決賽",
     "hltv_name": "BLAST Premier World Final 2022",
-    "winner": "G2 Esports",
+    "winner": "G2",
     "finalist": "Team Liquid",
     "score": "2-0",
     "hltv_url": "https://www.hltv.org/events/6349/blast-premier-world-final-2022"
@@ -724,7 +724,7 @@
     "name": "IEM 卡托維茲 2022",
     "hltv_name": "IEM Katowice 2022",
     "winner": "FaZe",
-    "finalist": "G2 Esports",
+    "finalist": "G2",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/6136/iem-katowice-2022"
   }
