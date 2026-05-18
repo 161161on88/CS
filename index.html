@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .sticky-header { position: sticky; top: 0; z-index: 10; }
-        /* 隱藏滾動條但保持功能 */
         .custom-scrollbar::-webkit-scrollbar { height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -26,21 +25,58 @@
                     <p class="text-slate-400 text-sm mt-2 font-medium tracking-wide">2022 - 2026 S-Tier 頂級賽事結果與 HLTV 數據彙整</p>
                 </div>
                 <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700 px-4 py-2 rounded-xl text-right">
-                    <span class="text-xs text-slate-400 block uppercase font-bold tracking-widest">已載入賽事</span>
-                    <span id="count" class="text-2xl font-black text-amber-400">0</span> <span class="text-sm text-slate-300">場</span>
+                    <span class="text-xs text-slate-400 block uppercase font-bold tracking-widest">符合篩選條件</span>
+                    <span id="count" class="text-2xl font-black text-amber-400">0</span> <span class="text-sm text-slate-300">/ <span id="totalCount">0</span> 場</span>
                 </div>
             </div>
         </div>
 
-        <!-- 搜尋與過濾控鍵 -->
-        <div class="mt-6 bg-white p-4 rounded-xl shadow-md border border-slate-200 flex flex-col md:flex-row gap-4 items-center">
+        <!-- 複合式搜尋與多功能過濾面板 -->
+        <div class="mt-6 bg-white p-6 rounded-xl shadow-md border border-slate-200 space-y-4">
+            <!-- 第一排：關鍵字搜尋 -->
             <div class="relative w-full">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
-                    🔍
-                </span>
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">🔍</span>
                 <input type="text" id="searchInput" 
-                       placeholder="搜尋中文/英文賽事、HLTV名稱或戰隊 (例如: Vitality, 里斯本, Major)..." 
+                       placeholder="輸入關鍵字任意搜尋 (例如: 里斯本, Major, 上海)..." 
                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+            </div>
+
+            <!-- 第二排：各類條件高級尋找（下拉選單） -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+                <!-- 年份過濾 -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">📅 按年份尋找</label>
+                    <select id="filterYear" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">全部年份</option>
+                    </select>
+                </div>
+
+                <!-- 戰隊過濾（包含奪冠快篩） -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊/榮譽尋找</label>
+                    <select id="filterTeam" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">全部戰隊</option>
+                        <!-- 由 JS 動態生成所有戰隊清單 -->
+                    </select>
+                </div>
+
+                <!-- 賽事主辦方/級別過濾 -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🏆 賽事類型/主辦</label>
+                    <select id="filterType" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">全部類型</option>
+                        <option value="major">Major (特級錦標賽)</option>
+                        <option value="blast">BLAST 系列賽</option>
+                        <option value="iem">IEM / ESL 系列賽</option>
+                    </select>
+                </div>
+
+                <!-- 重置按鈕 -->
+                <div>
+                    <button id="resetBtn" class="w-full py-2.5 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-700 font-bold text-sm rounded-lg transition-colors shadow-sm flex items-center justify-center gap-1">
+                        🔄 清除所有條件
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -67,7 +103,7 @@
             
             <!-- 無資料時顯示 -->
             <div id="noDataMessage" class="hidden py-12 text-center text-slate-400 font-medium">
-                ❌ 找不到符合搜尋條件的賽事資料
+                ❌ 找不到符合篩選條件的賽事資料
             </div>
         </div>
     </div>
@@ -79,19 +115,117 @@
             try {
                 const response = await fetch('data.json');
                 allData = await response.json();
-                renderTable(allData);
+                
+                // 初始化基礎數據
+                document.getElementById('totalCount').innerText = allData.length;
+                
+                // 動態建構下拉選單選項
+                buildFilterOptions(allData);
+                
+                // 初次渲染全資料
+                applyFilters();
             } catch (err) {
-                console.error("無法加載 data.json，請檢查檔案名稱或 CORS 本地伺服器環境", err);
+                console.error("無法加載 data.json", err);
                 document.getElementById('tableBody').innerHTML = `
                     <tr>
                         <td colspan="7" class="p-8 text-center text-red-500 font-semibold">
-                            ⚠️ 無法讀取 data.json 資料。請確保使用本地伺服器（如 Live Server）開啟此網頁。
+                            ⚠️ 無法讀取 data.json 資料。請確保環境正確。
                         </td>
                     </tr>
                 `;
             }
         }
 
+        // 動態分析 JSON 資料，並自動把「年份」和「戰隊」塞進下拉選單，避免硬編碼
+        function buildFilterOptions(data) {
+            const yearSelect = document.getElementById('filterYear');
+            const teamSelect = document.getElementById('filterTeam');
+            
+            const years = new Set();
+            const teams = new Set();
+            
+            data.forEach(item => {
+                if(item.year) years.add(item.year.toString());
+                if(item.winner && item.winner !== '-') teams.add(item.winner);
+                if(item.finalist && item.finalist !== '-') teams.add(item.finalist);
+            });
+            
+            // 填入年份 (從新到舊排序)
+            Array.from(years).sort((a,b) => b - a).forEach(year => {
+                yearSelect.options.add(new Option(`${year} 年`, year));
+            });
+            
+            // 填入戰隊選項 (建立一般參與和奪冠快篩)
+            const sortedTeams = Array.from(teams).sort();
+            
+            // 先加一組「只看奪冠」的分組
+            const optGroupWinner = document.createElement('optgroup');
+            optGroupWinner.label = "🏆 只看該隊奪冠紀錄";
+            sortedTeams.forEach(team => {
+                const opt = new Option(`🥇 ${team} (冠軍)`, `winner:${team}`);
+                optGroupWinner.appendChild(opt);
+            });
+            teamSelect.appendChild(optGroupWinner);
+
+            // 再加一組「只要有進決賽」的分組
+            const optGroupAll = document.createElement('optgroup');
+            optGroupAll.label = "⚔️ 該隊有進決賽 (冠/亞軍)";
+            sortedTeams.forEach(team => {
+                const opt = new Option(`👥 ${team} (決賽隊伍)`, `any:${team}`);
+                optGroupAll.appendChild(opt);
+            });
+            teamSelect.appendChild(optGroupAll);
+        }
+
+        // 核心：複合條件過濾器邏輯
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const selectedYear = document.getElementById('filterYear').value;
+            const selectedTeamOpt = document.getElementById('filterTeam').value; // 格式可能為 "winner:Team" 或 "any:Team"
+            const selectedType = document.getElementById('filterType').value;
+
+            const filtered = allData.filter(item => {
+                // 1. 關鍵字搜尋過濾
+                if (searchTerm) {
+                    const name = item.name ? String(item.name).toLowerCase() : '';
+                    const hltvName = item.hltv_name ? String(item.hltv_name).toLowerCase() : '';
+                    const winner = item.winner ? String(item.winner).toLowerCase() : '';
+                    const finalist = item.finalist ? String(item.finalist).toLowerCase() : '';
+                    const matchKeyword = name.includes(searchTerm) || hltvName.includes(searchTerm) || winner.includes(searchTerm) || finalist.includes(searchTerm);
+                    if (!matchKeyword) return false;
+                }
+
+                // 2. 年份下拉過濾
+                if (selectedYear && item.year && item.year.toString() !== selectedYear) {
+                    return false;
+                }
+
+                // 3. 戰隊高級過濾
+                if (selectedTeamOpt) {
+                    const [mode, teamName] = selectedTeamOpt.split(':');
+                    if (mode === 'winner' && item.winner !== teamName) {
+                        return false;
+                    }
+                    if (mode === 'any' && item.winner !== teamName && item.finalist !== teamName) {
+                        return false;
+                    }
+                }
+
+                // 4. 賽事主辦方類型精準模糊過濾
+                if (selectedType) {
+                    const combinedName = ((item.name || '') + ' ' + (item.hltv_name || '')).toLowerCase();
+                    if (selectedType === 'major' && !combinedName.includes('major')) return false;
+                    if (selectedType === 'blast' && !combinedName.includes('blast')) return false;
+                    if (selectedType === 'iem' && !combinedName.includes('iem') && !combinedName.includes('esl')) return false;
+                }
+
+                return true;
+            });
+
+            renderTable(filtered);
+        }
+
+        // 繪製/渲染表格
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
             const noDataMessage = document.getElementById('noDataMessage');
@@ -106,20 +240,15 @@
             noDataMessage.classList.add('hidden');
             
             tbody.innerHTML = data.map((item, index) => {
-                // 處理未完賽或無冠軍時的防錯外觀
                 const hasWinner = item.winner && item.winner !== '-';
                 const winnerHTML = hasWinner 
                     ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-800 border border-amber-300 shadow-sm">👑 ${item.winner}</span>`
                     : `<span class="text-slate-400 font-normal">-</span>`;
 
-                // 處理 HLTV URL 連結按鈕
                 const urlHTML = item.hltv_url 
-                    ? `<a href="${item.hltv_url}" target="_blank" class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 active:bg-indigo-200 border border-indigo-200 rounded-md transition-colors gap-1 shadow-sm">
-                        HLTV 🔗
-                       </a>`
+                    ? `<a href="${item.hltv_url}" target="_blank" class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-md transition-colors gap-1 shadow-sm">HLTV 🔗</a>`
                     : `<span class="text-slate-400 font-normal text-xs">-</span>`;
 
-                // 條目背景交替色 (奇偶數行色差)
                 const rowBg = index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60';
 
                 return `
@@ -142,31 +271,22 @@
             document.getElementById('count').innerText = data.length;
         }
 
-        // 強大且安全的即時過濾搜尋
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().trim();
-            
-            if (!term) {
-                renderTable(allData);
-                return;
-            }
+        // 綁定監聽事件 (當任何輸入或選單改變時，即時觸發過濾)
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('filterYear').addEventListener('change', applyFilters);
+        document.getElementById('filterTeam').addEventListener('change', applyFilters);
+        document.getElementById('filterType').addEventListener('change', applyFilters);
 
-            const filtered = allData.filter(i => {
-                const name = i.name ? String(i.name).toLowerCase() : '';
-                const hltvName = i.hltv_name ? String(i.hltv_name).toLowerCase() : '';
-                const winner = i.winner ? String(i.winner).toLowerCase() : '';
-                const finalist = i.finalist ? String(i.finalist).toLowerCase() : '';
-                
-                return name.includes(term) || 
-                       hltvName.includes(term) || 
-                       winner.includes(term) || 
-                       finalist.includes(term);
-            });
-            
-            renderTable(filtered);
+        // 重置按鈕事件
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('filterYear').value = '';
+            document.getElementById('filterTeam').value = '';
+            document.getElementById('filterType').value = '';
+            applyFilters();
         });
 
-        // 初始化載入
+        // 初始化
         init();
     </script>
 </body>
