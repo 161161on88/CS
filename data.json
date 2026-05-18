@@ -1,81 +1,731 @@
 [
-  { "year": "2026", "name": "EPL S23", "winner": "-", "finalist": "-", "score": "-" },
-  { "year": "2026", "name": "PGL 克盧日納波卡 2026", "winner": "Team Spirit", "finalist": "G2 Esports", "score": "3-1" },
-  { "year": "2026", "name": "IEM 克拉科夫 2026", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "3-2" },
-  { "year": "2026", "name": "BLAST 賞金賽 2026 S1", "winner": "PARIVISION", "finalist": "Team Spirit", "score": "3-2" },
-
-  { "year": "2025", "name": "StarLadder 布達佩斯 Major 2025", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "3-1" },
-  { "year": "2025", "name": "BLAST 巔峰賽 S2", "winner": "Team Spirit", "finalist": "NAVI", "score": "2-0" },
-  { "year": "2025", "name": "IEM 成都 2025", "winner": "FURIA", "finalist": "Team Vitality", "score": "3-0" },
-  { "year": "2025", "name": "TP 世界錦標賽 2025 決賽", "winner": "FURIA", "finalist": "Natus Vincere", "score": "3-2" },
-  { "year": "2025", "name": "CS 2025亞洲邀請賽 CAC", "winner": "Legacy", "finalist": "3DMAX", "score": "3-2" },
-  { "year": "2025", "name": "EPL S22", "winner": "Team Vitality", "finalist": "Team Falcons", "score": "3-0" },
-  { "year": "2025", "name": "FISSURE 裂變天地 2", "winner": "FURIA", "finalist": "The MongolZ", "score": "3-2" },
-  { "year": "2025", "name": "BLAST 倫敦公開賽 2025", "winner": "G2 Esports", "finalist": "Team Vitality", "score": "3-2" },
-  { "year": "2025", "name": "電競世界杯 2025", "winner": "The MongolZ", "finalist": "Aurora", "score": "3-0" },
-  { "year": "2025", "name": "BLAST 賞金賽 第2賽季", "winner": "Team Spirit", "finalist": "The MongolZ", "score": "3-2" },
-  { "year": "2025", "name": "IEM 科隆 2025", "winner": "Team Spirit", "finalist": "MOUZ", "score": "3-0" },
-  { "year": "2025", "name": "FISSURE 裂變天地 1", "winner": "MOUZ", "finalist": "Team Spirit", "score": "2-0" },
-  { "year": "2025", "name": "BLAST.tv 奧斯汀 Major 2025", "winner": "Team Vitality", "finalist": "The MongolZ", "score": "2-2" },
-  { "year": "2025", "name": "PGL 阿斯塔納 2025", "winner": "Team Spirit", "finalist": "MOUZ", "score": "3-1" },
-  { "year": "2025", "name": "BLAST 巔峰賽 第1賽季", "winner": "Natus Vincere", "finalist": "G2 Esports", "score": "2-1" },
-  { "year": "2025", "name": "IEM 墨爾本 2025", "winner": "Team Vitality", "finalist": "Team Falcons", "score": "3-2" },
-  { "year": "2025", "name": "PGL 布加勒斯特 2025", "winner": "Team Spirit", "finalist": "MOUZ", "score": "3-1" },
-  { "year": "2025", "name": "BLAST 裏斯本公開賽 2025", "winner": "MOUZ", "finalist": "Team Vitality", "score": "3-2" },
-  { "year": "2025", "name": "ESL Pro League S21", "winner": "Team Vitality", "finalist": "MOUZ", "score": "3-0" },
-  { "year": "2025", "name": "PGL 克盧日納波卡 2025", "winner": "MOUZ", "finalist": "Team Falcons", "score": "3-1" },
-  { "year": "2025", "name": "IEM 卡托維茲 2025", "winner": "G2 Esports", "finalist": "Team Spirit", "score": "3-1" },
-  { "year": "2025", "name": "BLAST 賞金賽 第1賽季", "winner": "G2 Esports", "finalist": "Team Spirit", "score": "2-0" },
-
-  { "year": "2024", "name": "完美世界 上海 Major 2024", "winner": "Team Spirit", "finalist": "FaZe Clan", "score": "2-1" },
-  { "year": "2024", "name": "BLAST Premier 全球總決賽 2024", "winner": "Team Spirit", "finalist": "FaZe Clan", "score": "3-0" },
-  { "year": "2024", "name": "Thunderpick 世界錦標賽 2024", "winner": "The MongolZ", "finalist": "Heroic", "score": "3-1" },
-  { "year": "2024", "name": "IEM 里約 2024", "winner": "Natus Vincere", "finalist": "Heroic", "score": "3-1" },
-  { "year": "2024", "name": "BLAST Premier 秋季總決賽 2024", "winner": "G2 Esports", "finalist": "Natus Vincere", "score": "3-1" },
-  { "year": "2024", "name": "ESL Pro League S20", "winner": "Natus Vincere", "finalist": "Eternal Fire", "score": "3-2" },
-  { "year": "2024", "name": "别墅杯 第2赛季", "winner": "Team Spirit", "finalist": "Virtus.pro", "score": "3-1" },
-  { "year": "2024", "name": "IEM 科隆 2024", "winner": "Natus Vincere", "finalist": "Team Vitality", "score": "3-1" },
-  { "year": "2024", "name": "BLAST Premier 秋季小組賽 2024", "winner": "Team Vitality", "finalist": "Natus Vincere", "score": "2-1" },
-  { "year": "2024", "name": "電競世界杯 2024", "winner": "Natus Vincere", "finalist": "G2 Esports", "score": "2-1" },
-  { "year": "2024", "name": "BLAST Premier 春季總決賽 2024", "winner": "Team Spirit", "finalist": "Natus Vincere", "score": "3-1" },
-  { "year": "2024", "name": "IEM 達拉斯 2024", "winner": "Team Vitality", "finalist": "ENCE", "score": "3-1" },
-  { "year": "2024", "name": "別墅杯 2024", "winner": "Team Spirit", "finalist": "FaZe Clan", "score": "3-1" },
-  { "year": "2024", "name": "ESL Pro League S19", "winner": "MOUZ", "finalist": "Team Vitality", "score": "3-0" },
-  { "year": "2024", "name": "IEM 成都 2024", "winner": "FaZe Clan", "finalist": "MOUZ", "score": "3-0" },
-  { "year": "2024", "name": "PGL CS2 Major 哥本哈根 2024", "winner": "Natus Vincere", "finalist": "FaZe Clan", "score": "2-1" },
-  { "year": "2024", "name": "IEM 卡托維茲 2024", "winner": "Team Spirit", "finalist": "FaZe Clan", "score": "3-0" },
-  { "year": "2024", "name": "BLAST Premier 春季小組賽 2024", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "2-1" },
-
-  { "year": "2023", "name": "BLAST Premier 全球總決賽 2023", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "2-0" },
-  { "year": "2023", "name": "BLAST Premier 秋季總決賽 2023", "winner": "Team Vitality", "finalist": "FaZe Clan", "score": "2-0" },
-  { "year": "2023", "name": "CS 亞洲邀請賽 2023", "winner": "FaZe Clan", "finalist": "MOUZ", "score": "2-0" },
-  { "year": "2023", "name": "Thunderpick 世界錦標賽 2023", "winner": "Virtus.pro", "finalist": "FaZe Clan", "score": "3-2" },
-  { "year": "2023", "name": "袋鼠杯 2023 (Roobet Cup)", "winner": "Virtus.pro", "finalist": "Monte", "score": "2-1" },
-  { "year": "2023", "name": "IEM 悉尼 2023", "winner": "FaZe Clan", "finalist": "Complexity", "score": "2-1" },
-  { "year": "2023", "name": "ESL Pro League S18", "winner": "MOUZ", "finalist": "Natus Vincere", "score": "3-0" },
-  { "year": "2023", "name": "Gamers8 2023", "winner": "ENCE", "finalist": "MOUZ", "score": "2-0" },
-  { "year": "2023", "name": "IEM 科隆 2023", "winner": "ENCE", "finalist": "MOUZ", "score": "3-1" },
-  { "year": "2023", "name": "BLAST Premier 秋季小組賽 2023", "winner": "Vitality / MOUZ", "finalist": "-", "score": "-" },
-  { "year": "2023", "name": "BLAST Premier 春季總決賽 2023", "winner": "Heroic", "finalist": "Team Vitality", "score": "2-1" },
-  { "year": "2023", "name": "IEM 達拉斯 2023", "winner": "ENCE", "finalist": "MOUZ", "score": "2-0" },
-  { "year": "2023", "name": "BLAST 巴黎 Major 2023", "winner": "Team Vitality", "finalist": "GamerLegion", "score": "2-0" },
-  { "year": "2023", "name": "IEM 里約 2023", "winner": "Heroic", "finalist": "Natus Vincere", "score": "2-0" },
-  { "year": "2023", "name": "ESL Pro League S17", "winner": "FaZe Clan", "finalist": "Cloud9", "score": "3-1" },
-  { "year": "2023", "name": "IEM 卡托維茲 2023", "winner": "G2 Esports", "finalist": "Heroic", "score": "3-1" },
-  { "year": "2023", "name": "BLAST Premier 春季小組賽 2023", "winner": "Vitality / FaZe", "finalist": "-", "score": "-" },
-
-  { "year": "2022", "name": "BLAST Premier 全球總決賽", "winner": "G2 Esports", "finalist": "Team Liquid", "score": "2-0" },
-  { "year": "2022", "name": "BLAST Premier 秋季決賽", "winner": "Heroic", "finalist": "FaZe Clan", "score": "2-1" },
-  { "year": "2022", "name": "Elisa 埃斯波大師賽 2022", "winner": "fnatic", "finalist": "BIG", "score": "2-0" },
-  { "year": "2022", "name": "IEM 里約 Major 2022", "winner": "Outsiders", "finalist": "Heroic", "score": "2-0" },
-  { "year": "2022", "name": "ESL Pro League S16", "winner": "Team Vitality", "finalist": "Team Liquid", "score": "3-2" },
-  { "year": "2022", "name": "BLAST Premier 秋季小組賽", "winner": "FaZe / Liquid", "finalist": "-", "score": "-" },
-  { "year": "2022", "name": "賽睿 Nova Invitational 2022", "winner": "FaZe Clan", "finalist": "OG", "score": "2-0" },
-  { "year": "2022", "name": "IEM 科隆 2022", "winner": "FaZe Clan", "finalist": "Natus Vincere", "score": "3-2" },
-  { "year": "2022", "name": "袋鼠杯邀請賽 (Roobet Cup 2022)", "winner": "BIG", "finalist": "FaZe Clan", "score": "2-1" },
-  { "year": "2022", "name": "BLAST Premier 春季決賽", "winner": "Natus Vincere", "finalist": "Vitality", "score": "2-0" },
-  { "year": "2022", "name": "IEM 達拉斯 2022", "winner": "Cloud9", "finalist": "ENCE", "score": "3-0" },
-  { "year": "2022", "name": "2022 PGL 安特衛普 Major", "winner": "FaZe Clan", "finalist": "Natus Vincere", "score": "2-0" },
-  { "year": "2022", "name": "ESL Pro League S15", "winner": "FaZe Clan", "finalist": "ENCE", "score": "3-1" },
-  { "year": "2022", "name": "IEM 卡托維茲 2022", "winner": "FaZe Clan", "finalist": "G2 Esports", "score": "3-0" }
+  {
+    "year": "2026",
+    "name": "IEM 亞特蘭大 2026",
+    "hltv_name": "IEM Atlanta 2026",
+    "winner": "Natus Vincere",
+    "finalist": "GamerLegion",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8243/iem-atlanta-2026"
+  },
+  {
+    "year": "2026",
+    "name": "PGL 阿斯塔納 2026",
+    "hltv_name": "PGL Astana 2026",
+    "winner": "Spirit",
+    "finalist": "Falcons",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8049/pgl-astana-2026"
+  },
+  {
+    "year": "2026",
+    "name": "BLAST 對抗賽 2026 S1",
+    "hltv_name": "BLAST Rivals 2026 Season 1",
+    "winner": "Vitality\n",
+    "finalist": "Natus Vincere\n",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8250/blast-rivals-2026-season-1"
+  },
+  {
+    "year": "2026",
+    "name": "IEM 里約熱內盧 2026",
+    "hltv_name": "IEM Rio 2026",
+    "winner": "Vitality",
+    "finalist": "Spirit",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8242/iem-rio-2026"
+  },
+  {
+    "year": "2026",
+    "name": "PGL 布加勒斯特 2026",
+    "hltv_name": "PGL Bucharest 2026",
+    "winner": "FUT\n",
+    "finalist": "Astralis",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8048/pgl-bucharest-2026"
+  },
+  {
+    "year": "2026",
+    "name": "BLAST 鹿特丹公開賽 2026",
+    "hltv_name": "BLAST Open Rotterdam 2026",
+    "winner": "Vitality\n",
+    "finalist": "Natus Vincere",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8248/blast-open-rotterdam-2026"
+  },
+  {
+    "year": "2026",
+    "name": "EPL S23",
+    "hltv_name": "ESL Pro League Season 23 Finals",
+    "winner": "Natus Vincere",
+    "finalist": "Aurora",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8413/esl-pro-league-season-23-finals"
+  },
+  {
+    "year": "2026",
+    "name": "PGL 克盧日納波卡 2026",
+    "hltv_name": "PGL Cluj-Napoca 2026",
+    "winner": "Vitality\n",
+    "finalist": "PARIVISION\n",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8047/pgl-cluj-napoca-2026"
+  },
+  {
+    "year": "2026",
+    "name": "IEM 克拉科夫 2026",
+    "hltv_name": "IEM Katowice 2026",
+    "winner": "Vitality\n",
+    "finalist": "FURIA\n",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8240/iem-krakw-2026"
+  },
+  {
+    "year": "2026",
+    "name": "BLAST賞金賽 2026 S1",
+    "hltv_name": "BLAST Bounty Hunter Series 2026 S1",
+    "winner": "PARIVISION\n",
+    "finalist": "Falcons\n",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8246/blast-bounty-2026-season-1-finals"
+  },
+  {
+    "year": "2025",
+    "name": "StarLadder 布達佩斯 Major 2025",
+    "hltv_name": "StarLadder Budapest Major 2025",
+    "winner": "Vitality",
+    "finalist": "FaZe Clan",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8042/starladder-budapest-major-2025"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 巔峰賽 S2",
+    "hltv_name": "BLAST Rivals 2025 Season 2",
+    "winner": "FURIA",
+    "finalist": "Falcons",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7908/blast-rivals-2025-season-2"
+  },
+  {
+    "year": "2025",
+    "name": "IEM成都 2025",
+    "hltv_name": "IEM Chengdu 2025",
+    "winner": "FURIA",
+    "finalist": "Vitality",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8041/iem-chengdu-2025"
+  },
+  {
+    "year": "2025",
+    "name": "TP 世界錦標賽 2025 決賽",
+    "hltv_name": "Thunderpick World Championship 2025",
+    "winner": "FURIA",
+    "finalist": "Natus Vincere",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/8067/thunderpick-world-championship-2025"
+  },
+  {
+    "year": "2025",
+    "name": "CS 2025亞洲邀請賽 CAC",
+    "hltv_name": "CS Asia Championships 2025",
+    "winner": "Legacy",
+    "finalist": "3DMAX",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/8027/cs-asia-championships-2025"
+  },
+  {
+    "year": "2025",
+    "name": "EPL S22",
+    "hltv_name": "ESL Pro League Season 22",
+    "winner": "Vitality",
+    "finalist": "Falcons",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8040/esl-pro-league-season-22"
+  },
+  {
+    "year": "2025",
+    "name": "FISSURE 裂變天地 2",
+    "hltv_name": "FISSURE Playground 2",
+    "winner": "FURIA",
+    "finalist": "MongolZ",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/8064/fissure-playground-2"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 倫敦公開賽 2025",
+    "hltv_name": "BLAST Open London 2025 Finals",
+    "winner": "G2",
+    "finalist": "Vitality",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/7912/blast-open-london-2025-finals"
+  },
+  {
+    "year": "2025",
+    "name": "電競世界杯 2025",
+    "hltv_name": "Esports World Cup 2025",
+    "winner": "The MongolZ",
+    "finalist": "Aurora Gaming",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8039/esports-world-cup-2025"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 賞金賽 第2賽季",
+    "hltv_name": "BLAST Bounty 2025 Season 2 Finals",
+    "winner": "Spirit",
+    "finalist": "MongolZ",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7910/blast-bounty-2025-season-2-finals"
+  },
+  {
+    "year": "2025",
+    "name": "IEM 科隆 2025",
+    "hltv_name": "IEM Cologne 2025",
+    "winner": "Spirit",
+    "finalist": "MOUZ",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8038/iem-cologne-2025"
+  },
+  {
+    "year": "2025",
+    "name": "FISSURE 裂變天地 1",
+    "hltv_name": "FISSURE Playground 1",
+    "winner": "TYLOO",
+    "finalist": "Astralis",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8063/fissure-playground-1"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST.tv 奧斯汀 Major 2025",
+    "hltv_name": "BLAST.tv Austin Major 2025",
+    "winner": "Vitality",
+    "finalist": "MongolZ",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/7902/blasttv-austin-major-2025"
+  },
+  {
+    "year": "2025",
+    "name": "PGL 阿斯塔納 2025",
+    "hltv_name": "PGL Astana 2025",
+    "winner": "Spirit",
+    "finalist": "Astralis",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8045/pgl-astana-2025"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 巔峰賽 第1賽季",
+    "hltv_name": "BLAST Rivals 2025 Season 1",
+    "winner": "Vitality",
+    "finalist": "Falcons",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/7905/blast-rivals-2025-season-1"
+  },
+  {
+    "year": "2025",
+    "name": "IEM 墨爾本 2025",
+    "hltv_name": "IEM Melbourne 2025",
+    "winner": "Vitality",
+    "finalist": "Falcons",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/8036/iem-melbourne-2025"
+  },
+  {
+    "year": "2025",
+    "name": "PGL 布加勒斯特 2025",
+    "hltv_name": "PGL Bucharest 2025",
+    "winner": "Falcons",
+    "finalist": "G2",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8044/pgl-bucharest-2025"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 里斯本公開賽 2025",
+    "hltv_name": "BLAST Open Lisbon 2025",
+    "winner": "Vitality",
+    "finalist": "MOUZ",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/7904/blast-open-lisbon-2025"
+  },
+  {
+    "year": "2025",
+    "name": "ESL Pro League S21",
+    "hltv_name": "ESL Pro League Season 21",
+    "winner": "Vitality",
+    "finalist": "MOUZ",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8292/esl-pro-league-season-21"
+  },
+  {
+    "year": "2025",
+    "name": "PGL 克盧日納波卡 2025",
+    "hltv_name": "PGL Cluj-Napoca 2025",
+    "winner": "MOUZ",
+    "finalist": "Falcons",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8043/pgl-cluj-napoca-2025"
+  },
+  {
+    "year": "2025",
+    "name": "IEM 卡托維茲 2025",
+    "hltv_name": "IEM Katowice 2025",
+    "winner": "Vitality",
+    "finalist": "Spirit",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8034/iem-katowice-2025"
+  },
+  {
+    "year": "2025",
+    "name": "BLAST 賞金賽 第1賽季",
+    "hltv_name": "BLAST Bounty 2025 Season 1 Finals",
+    "winner": "Spirit",
+    "finalist": "Eternal Fire",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7909/blast-bounty-2025-season-1-finals"
+  },
+  {
+    "year": "2024",
+    "name": "完美世界 上海 Major 2024",
+    "hltv_name": "Perfect World Shanghai Major 2024",
+    "winner": "Spirit",
+    "finalist": "FaZe",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/7524/perfect-world-shanghai-major-2024"
+  },
+  {
+    "year": "2024",
+    "name": "BLAST Premier 全球總決賽 2024",
+    "hltv_name": "BLAST Premier World Final 2024",
+    "winner": "G2",
+    "finalist": "Spirit",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7557/blast-premier-world-final-2024"
+  },
+  {
+    "year": "2024",
+    "name": "TP 世界錦標賽 2024",
+    "hltv_name": "Thunderpick World Championship 2024",
+    "winner": "The MongolZ",
+    "finalist": "HEROIC",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7694/thunderpick-world-championship-2024-finals"
+  },
+  {
+    "year": "2024",
+    "name": "IEM 里約 2024",
+    "hltv_name": "IEM Rio 2024",
+    "winner": "Natus Vincere",
+    "finalist": "MOUZ",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7439/iem-rio-2024"
+  },
+  {
+    "year": "2024",
+    "name": "BLAST Premier 秋季總決賽 2024",
+    "hltv_name": "BLAST Premier Fall Final 2024",
+    "winner": "G2",
+    "finalist": "Natus Vincere",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7556/blast-premier-fall-final-2024"
+  },
+  {
+    "year": "2024",
+    "name": "ESL Pro League S20",
+    "hltv_name": "ESL Pro League Season 20",
+    "winner": "Natus Vincere",
+    "finalist": "Eternal Fire",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/7441/esl-pro-league-season-20"
+  },
+  {
+    "year": "2024",
+    "name": "别墅杯 第2赛季",
+    "hltv_name": "BetBoom Dacha Belgrade Season 2",
+    "winner": "Spirit",
+    "finalist": "Eternal Fire",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7993/betboom-dacha-belgrade-season-2"
+  },
+  {
+    "year": "2024",
+    "name": "IEM 科隆 2024",
+    "hltv_name": "IEM Cologne 2024",
+    "winner": "Vitality",
+    "finalist": "Natus Vincere",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7436/iem-cologne-2024"
+  },
+  {
+    "year": "2024",
+    "name": "BLAST Premier 秋季小組賽 2024",
+    "hltv_name": "BLAST Premier Fall Groups 2024",
+    "winner": "Liquid、G2 、Vitality 、Spirit",
+    "finalist": "-",
+    "score": "-",
+    "hltv_url": "https://www.hltv.org/events/7554/blast-premier-fall-groups-2024"
+  },
+  {
+    "year": "2024",
+    "name": "電競世界杯 2024",
+    "hltv_name": "Esports World Cup 2024",
+    "winner": "Natus Vincere",
+    "finalist": "G2",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/7732/esports-world-cup-2024"
+  },
+  {
+    "year": "2024",
+    "name": "BLAST Premier 春季總決賽 2024",
+    "hltv_name": "BLAST Premier Spring Final 2024",
+    "winner": "Spirit",
+    "finalist": "Natus Vincere",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/7485/blast-premier-spring-final-2024"
+  },
+  {
+    "year": "2024",
+    "name": "IEM 達拉斯 2024",
+    "hltv_name": "IEM Dallas 2024",
+    "winner": "G2",
+    "finalist": "Vitality",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/7438/iem-dallas-2024"
+  },
+  {
+    "year": "2024",
+    "name": "別墅杯 2024",
+    "hltv_name": "BetBoom Dacha Belgrade 2024",
+    "winner": "MOUZ",
+    "finalist": "Spirit",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7755/betboom-dacha-belgrade-2024"
+  },
+  {
+    "year": "2024",
+    "name": "ESL Pro League S19",
+    "hltv_name": "ESL Pro League Season 19",
+    "winner": "MOUZ",
+    "finalist": "Vitality",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7440/esl-pro-league-season-19"
+  },
+  {
+    "year": "2024",
+    "name": "IEM 成都 2024",
+    "hltv_name": "IEM Chengdu 2024",
+    "winner": "FaZe",
+    "finalist": "MOUZ",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/7437/iem-chengdu-2024"
+  },
+  {
+    "year": "2024",
+    "name": "PGL CS2 Major 哥本哈根 2024",
+    "hltv_name": "PGL CS2 Major Copenhagen 2024",
+    "winner": "Natus Vincere",
+    "finalist": "FaZe",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/7148/pgl-cs2-major-copenhagen-2024"
+  },
+  {
+    "year": "2024",
+    "name": "IEM 卡托維茲 2024",
+    "hltv_name": "IEM Katowice 2024",
+    "winner": "Spirit",
+    "finalist": "FaZe",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/7435/iem-katowice-2024"
+  },
+  {
+    "year": "2024",
+    "name": "BLAST Premier 春季小組賽 2024",
+    "hltv_name": "BLAST Premier Spring Groups 2024",
+    "winner": "Virtus.pro、FaZe、Natus Vincere、Vitality",
+    "finalist": "-",
+    "score": "-",
+    "hltv_url": "https://www.hltv.org/events/7552/blast-premier-spring-groups-2024"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST Premier 全球總決賽 2023",
+    "hltv_name": "BLAST Premier World Final 2023",
+    "winner": "Vitality",
+    "finalist": "FaZe",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6976/blast-premier-world-final-2023"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST Premier 秋季總決賽 2023",
+    "hltv_name": "BLAST Premier Fall Final 2023",
+    "winner": "Vitality",
+    "finalist": "FaZe",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6975/blast-premier-fall-final-2023"
+  },
+  {
+    "year": "2023",
+    "name": "CS 亞洲邀請賽 2023",
+    "hltv_name": "CS Asia Championships 2023",
+    "winner": "FaZe",
+    "finalist": "MOUZ",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/7365/cs-asia-championships-2023"
+  },
+  {
+    "year": "2023",
+    "name": "TP 世界錦標賽 2023",
+    "hltv_name": "Thunderpick World Championship 2023",
+    "winner": "FaZe",
+    "finalist": "Virtus.pro",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/7289/thunderpick-world-championship-2023"
+  },
+  {
+    "year": "2023",
+    "name": "袋鼠杯 2023",
+    "hltv_name": "Roobet Cup 2023",
+    "winner": "Virtus.pro\n",
+    "finalist": "Monte",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/7225/roobet-cup-2023"
+  },
+  {
+    "year": "2023",
+    "name": "IEM 悉尼 2023",
+    "hltv_name": "IEM Sydney 2023",
+    "winner": "FaZe\n",
+    "finalist": "Complexity",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/6865/iem-sydney-2023"
+  },
+  {
+    "year": "2023",
+    "name": "ESL Pro League S18",
+    "hltv_name": "ESL Pro League Season 18",
+    "winner": "MOUZ\n",
+    "finalist": "Natus Vincere",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/6863/esl-pro-league-season-18"
+  },
+  {
+    "year": "2023",
+    "name": "Gamers8 2023",
+    "hltv_name": "Gamers8 2023",
+    "winner": "Vitality\n",
+    "finalist": "ENCE\n",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/7128/gamers8-2023"
+  },
+  {
+    "year": "2023",
+    "name": "IEM 科隆 2023",
+    "hltv_name": "IEM Cologne 2023",
+    "winner": "G2",
+    "finalist": "ENCE",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/6811/iem-cologne-2023"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST Premier 秋季小組賽 2023",
+    "hltv_name": "BLAST Premier Fall Groups 2023",
+    "winner": "FaZe、HEROIC、Ninjas in Pyjamas",
+    "finalist": "-",
+    "score": "-",
+    "hltv_url": "https://www.hltv.org/events/6973/blast-premier-fall-groups-2023"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST Premier 2023春季總決賽",
+    "hltv_name": "BLAST Premier Spring Final 2023",
+    "winner": "HEROIC",
+    "finalist": "Vitality",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6972/blast-premier-spring-final-2023"
+  },
+  {
+    "year": "2023",
+    "name": "IEM 達拉斯 2023",
+    "hltv_name": "IEM Dallas 2023",
+    "winner": "ENCE",
+    "finalist": "MOUZ",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6861/iem-dallas-2023"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST 巴黎 Major 2023",
+    "hltv_name": "BLAST.tv Paris Major 2023",
+    "winner": "Vitality",
+    "finalist": "GamerLegion",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6793/blasttv-paris-major-2023"
+  },
+  {
+    "year": "2023",
+    "name": "IEM 里約 2023",
+    "hltv_name": "IEM Rio 2023",
+    "winner": "Vitality",
+    "finalist": "HEROIC",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6864/iem-rio-2023"
+  },
+  {
+    "year": "2023",
+    "name": "ESL Pro League S17",
+    "hltv_name": "ESL Pro League Season 17",
+    "winner": "FaZe",
+    "finalist": "Cloud9",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/6862/esl-pro-league-season-17"
+  },
+  {
+    "year": "2023",
+    "name": "IEM 卡托維茲 2023",
+    "hltv_name": "Katowice 2023",
+    "winner": "G2",
+    "finalist": "HEROIC",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/6809/iem-katowice-2023"
+  },
+  {
+    "year": "2023",
+    "name": "BLAST Premier 2023春季小組賽",
+    "hltv_name": "BLAST Premier: Spring Final 2023",
+    "winner": "G2、FaZe 、Vitality",
+    "finalist": "-",
+    "score": "-",
+    "hltv_url": "https://www.hltv.org/events/6970/blast-premier-spring-groups-2023"
+  },
+  {
+    "year": "2022",
+    "name": "BLAST Premier 全球總決賽",
+    "hltv_name": "BLAST Premier World Final 2022",
+    "winner": "G2 Esports",
+    "finalist": "Team Liquid",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6349/blast-premier-world-final-2022"
+  },
+  {
+    "year": "2022",
+    "name": "BLAST Premier 秋季決賽 2022",
+    "hltv_name": "BLAST Premier Fall Final 2022",
+    "winner": "Heroic",
+    "finalist": "FaZe Clan",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/6348/blast-premier-fall-final-2022"
+  },
+  {
+    "year": "2022",
+    "name": "Elisa 埃斯波大師賽 2022",
+    "hltv_name": "Elisa Masters Espoo 2022",
+    "winner": "fnatic",
+    "finalist": "BIG",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6621/elisa-masters-espoo-2022"
+  },
+  {
+    "year": "2022",
+    "name": "IEM 里約 Major 2022",
+    "hltv_name": "IEM Rio Major 2022",
+    "winner": "Outsiders",
+    "finalist": "Heroic",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6586/iem-rio-major-2022"
+  },
+  {
+    "year": "2022",
+    "name": "ESL Pro League S16",
+    "hltv_name": "ESL Pro League Season 16",
+    "winner": "Team Vitality",
+    "finalist": "Team Liquid",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/6141/esl-pro-league-season-16"
+  },
+  {
+    "year": "2022",
+    "name": "BLAST Premier 秋季小組賽 2022",
+    "hltv_name": "BLAST Premier Fall Groups 2022",
+    "winner": "NaVi、Liquid、OG",
+    "finalist": "-",
+    "score": "-",
+    "hltv_url": "https://www.hltv.org/events/6346/blast-premier-fall-groups-2022"
+  },
+  {
+    "year": "2022",
+    "name": "賽睿 2022 Nova邀請賽",
+    "hltv_name": "SteelSeries Nova Invitational 2022",
+    "winner": "FaZe Clan",
+    "finalist": "OG",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6723/steelseries-nova-invitational-2022"
+  },
+  {
+    "year": "2022",
+    "name": "IEM 科隆 2022",
+    "hltv_name": "IEM Cologne 2022",
+    "winner": "FaZe Clan",
+    "finalist": "Natus Vincere",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/6140/iem-cologne-2022"
+  },
+  {
+    "year": "2022",
+    "name": "袋鼠杯邀請賽",
+    "hltv_name": "Roobet Cup 2022",
+    "winner": "BIG",
+    "finalist": "FaZe Clan",
+    "score": "2-1",
+    "hltv_url": "https://www.hltv.org/events/6510/roobet-cup-2022"
+  },
+  {
+    "year": "2022",
+    "name": "BLAST Premier 春季決賽",
+    "hltv_name": "BLAST Premier Spring Final 2022",
+    "winner": "Natus Vincere",
+    "finalist": "Vitality",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6345/blast-premier-spring-final-2022"
+  },
+  {
+    "year": "2022",
+    "name": "IEM 達拉斯 2022",
+    "hltv_name": "IEM Dallas 2022",
+    "winner": "Cloud9",
+    "finalist": "ENCE",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/6138/iem-dallas-2022"
+  },
+  {
+    "year": "2022",
+    "name": "2022 PGL 安特衛普 Major",
+    "hltv_name": "PGL Major Antwerp 2022",
+    "winner": "FaZe Clan",
+    "finalist": "Natus Vincere",
+    "score": "2-0",
+    "hltv_url": "https://www.hltv.org/events/6372/pgl-major-antwerp-2022"
+  },
+  {
+    "year": "2022",
+    "name": "ESL Pro League S15",
+    "hltv_name": "ESL Pro League Season 15",
+    "winner": "FaZe Clan",
+    "finalist": "ENCE",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/6137/esl-pro-league-season-15"
+  },
+  {
+    "year": "2022",
+    "name": "IEM 卡托維茲 2022",
+    "hltv_name": "IEM Katowice 2022",
+    "winner": "FaZe Clan",
+    "finalist": "G2 Esports",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/6136/iem-katowice-2022"
+  }
 ]
