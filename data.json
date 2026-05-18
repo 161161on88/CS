@@ -21,8 +21,8 @@
     "year": "2026",
     "name": "BLAST 對抗賽 2026 S1",
     "hltv_name": "BLAST Rivals 2026 Season 1",
-    "winner": "Vitality\n",
-    "finalist": "Natus Vincere\n",
+    "winner": "Vitality",
+    "finalist": "Natus Vincere",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/8250/blast-rivals-2026-season-1"
   },
@@ -39,7 +39,7 @@
     "year": "2026",
     "name": "PGL 布加勒斯特 2026",
     "hltv_name": "PGL Bucharest 2026",
-    "winner": "FUT\n",
+    "winner": "FUT",
     "finalist": "Astralis",
     "score": "3-1",
     "hltv_url": "https://www.hltv.org/events/8048/pgl-bucharest-2026"
@@ -48,7 +48,7 @@
     "year": "2026",
     "name": "BLAST 鹿特丹公開賽 2026",
     "hltv_name": "BLAST Open Rotterdam 2026",
-    "winner": "Vitality\n",
+    "winner": "Vitality",
     "finalist": "Natus Vincere",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/8248/blast-open-rotterdam-2026"
@@ -66,8 +66,8 @@
     "year": "2026",
     "name": "PGL 克盧日納波卡 2026",
     "hltv_name": "PGL Cluj-Napoca 2026",
-    "winner": "Vitality\n",
-    "finalist": "PARIVISION\n",
+    "winner": "Vitality",
+    "finalist": "PARIVISION",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/8047/pgl-cluj-napoca-2026"
   },
@@ -75,8 +75,8 @@
     "year": "2026",
     "name": "IEM 克拉科夫 2026",
     "hltv_name": "IEM Katowice 2026",
-    "winner": "Vitality\n",
-    "finalist": "FURIA\n",
+    "winner": "Vitality",
+    "finalist": "FURIA",
     "score": "3-1",
     "hltv_url": "https://www.hltv.org/events/8240/iem-krakw-2026"
   },
@@ -84,8 +84,8 @@
     "year": "2026",
     "name": "BLAST賞金賽 2026 S1",
     "hltv_name": "BLAST Bounty Hunter Series 2026 S1",
-    "winner": "PARIVISION\n",
-    "finalist": "Falcons\n",
+    "winner": "PARIVISION",
+    "finalist": "Falcons",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/8246/blast-bounty-2026-season-1-finals"
   },
@@ -489,7 +489,7 @@
     "year": "2023",
     "name": "袋鼠杯 2023",
     "hltv_name": "Roobet Cup 2023",
-    "winner": "Virtus.pro\n",
+    "winner": "Virtus.pro",
     "finalist": "Monte",
     "score": "2-1",
     "hltv_url": "https://www.hltv.org/events/7225/roobet-cup-2023"
@@ -498,7 +498,7 @@
     "year": "2023",
     "name": "IEM 悉尼 2023",
     "hltv_name": "IEM Sydney 2023",
-    "winner": "FaZe\n",
+    "winner": "FaZe",
     "finalist": "Complexity",
     "score": "2-1",
     "hltv_url": "https://www.hltv.org/events/6865/iem-sydney-2023"
@@ -507,7 +507,7 @@
     "year": "2023",
     "name": "ESL Pro League S18",
     "hltv_name": "ESL Pro League Season 18",
-    "winner": "MOUZ\n",
+    "winner": "MOUZ",
     "finalist": "Natus Vincere",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/6863/esl-pro-league-season-18"
@@ -516,8 +516,8 @@
     "year": "2023",
     "name": "Gamers8 2023",
     "hltv_name": "Gamers8 2023",
-    "winner": "Vitality\n",
-    "finalist": "ENCE\n",
+    "winner": "Vitality",
+    "finalist": "ENCE",
     "score": "2-1",
     "hltv_url": "https://www.hltv.org/events/7128/gamers8-2023"
   },
