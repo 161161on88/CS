@@ -6,41 +6,69 @@
     <title>CS 賽事大數據紀錄板</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .winner-text { color: #b45309; font-weight: bold; }
-        .score-badge { background: #334155; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; }
-        .sticky-header { position: sticky; top: 0; background: white; z-index: 10; border-bottom: 2px solid #e2e8f0; }
+        .sticky-header { position: sticky; top: 0; z-index: 10; }
+        /* 隱藏滾動條但保持功能 */
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen p-4">
+<body class="bg-slate-100 min-h-screen text-slate-800 antialiased font-sans">
 
-    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden mt-6">
-        <div class="bg-slate-800 text-white p-6">
-            <h1 class="text-2xl font-bold">CS 職業賽事紀錄資料庫</h1>
-            <p class="text-slate-400 text-sm mt-1">2022 - 2026 S-Tier 賽事結果彙整</p>
-        </div>
-
-        <div class="p-4 flex flex-col md:flex-row gap-4 items-center justify-between border-b">
-            <input type="text" id="searchInput" placeholder="搜尋賽事或戰隊 (例如: Spirit, Major)..." 
-                   class="w-full md:w-1/2 p-2 border rounded-lg focus:ring-2 focus:ring-slate-500 outline-none">
-            <div class="text-sm font-semibold text-slate-500">
-                顯示條目：<span id="count">0</span>
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- 頂部 Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 md:p-8 rounded-2xl shadow-xl border-b-4 border-amber-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-wider flex items-center gap-2">
+                        <span>🎮</span> CS 職業賽事紀錄大數據資料庫
+                    </h1>
+                    <p class="text-slate-400 text-sm mt-2 font-medium tracking-wide">2022 - 2026 S-Tier 頂級賽事結果與 HLTV 數據彙整</p>
+                </div>
+                <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700 px-4 py-2 rounded-xl text-right">
+                    <span class="text-xs text-slate-400 block uppercase font-bold tracking-widest">已載入賽事</span>
+                    <span id="count" class="text-2xl font-black text-amber-400">0</span> <span class="text-sm text-slate-300">場</span>
+                </div>
             </div>
         </div>
 
-        <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-                <thead class="sticky-header">
-                    <tr class="text-slate-600 text-sm uppercase">
-                        <th class="p-4">年份</th>
-                        <th class="p-4">賽事名稱</th>
-                        <th class="p-4">冠軍 (Winner)</th>
-                        <th class="p-4">亞軍 (Finalist)</th>
-                        <th class="p-4 text-center">比分</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody" class="divide-y divide-slate-100 text-gray-700">
+        <!-- 搜尋與過濾控鍵 -->
+        <div class="mt-6 bg-white p-4 rounded-xl shadow-md border border-slate-200 flex flex-col md:flex-row gap-4 items-center">
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                    🔍
+                </span>
+                <input type="text" id="searchInput" 
+                       placeholder="搜尋中文/英文賽事、HLTV名稱或戰隊 (例如: Vitality, 里斯本, Major)..." 
+                       class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+            </div>
+        </div>
+
+        <!-- 數據表格區塊 -->
+        <div class="mt-6 bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse">
+                    <thead class="sticky-header bg-slate-800 text-slate-200 shadow-sm">
+                        <tr class="text-xs uppercase tracking-wider font-bold">
+                            <th class="p-4 w-20 text-center">年份</th>
+                            <th class="p-4 min-w-[200px]">賽事名稱</th>
+                            <th class="p-4 min-w-[200px]">HLTV 官方名稱</th>
+                            <th class="p-4 min-w-[150px]">冠軍 (Winner)</th>
+                            <th class="p-4 min-w-[150px]">亞軍 (Finalist)</th>
+                            <th class="p-4 text-center w-24">最終比分</th>
+                            <th class="p-4 text-center w-28">數據連結</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="divide-y divide-slate-200/80 text-sm font-medium">
+                        <!-- 由 JavaScript 動態渲染 -->
                     </tbody>
-            </table>
+                </table>
+            </div>
+            
+            <!-- 無資料時顯示 -->
+            <div id="noDataMessage" class="hidden py-12 text-center text-slate-400 font-medium">
+                ❌ 找不到符合搜尋條件的賽事資料
+            </div>
         </div>
     </div>
 
@@ -53,34 +81,92 @@
                 allData = await response.json();
                 renderTable(allData);
             } catch (err) {
-                console.error("無法加載 data.json", err);
+                console.error("無法加載 data.json，請檢查檔案名稱或 CORS 本地伺服器環境", err);
+                document.getElementById('tableBody').innerHTML = `
+                    <tr>
+                        <td colspan="7" class="p-8 text-center text-red-500 font-semibold">
+                            ⚠️ 無法讀取 data.json 資料。請確保使用本地伺服器（如 Live Server）開啟此網頁。
+                        </td>
+                    </tr>
+                `;
             }
         }
 
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = data.map(item => `
-                <tr class="hover:bg-slate-50 transition">
-                    <td class="p-4 text-slate-400 font-medium">${item.year}</td>
-                    <td class="p-4 font-semibold text-slate-800">${item.name}</td>
-                    <td class="p-4">${item.winner !== '-' ? '<span class="winner-text">🏆 ' + item.winner + '</span>' : '-'}</td>
-                    <td class="p-4 text-slate-600">${item.finalist}</td>
-                    <td class="p-4 text-center"><span class="score-badge">${item.score}</span></td>
-                </tr>
-            `).join('');
+            const noDataMessage = document.getElementById('noDataMessage');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = '';
+                noDataMessage.classList.remove('hidden');
+                document.getElementById('count').innerText = 0;
+                return;
+            }
+            
+            noDataMessage.classList.add('hidden');
+            
+            tbody.innerHTML = data.map((item, index) => {
+                // 處理未完賽或無冠軍時的防錯外觀
+                const hasWinner = item.winner && item.winner !== '-';
+                const winnerHTML = hasWinner 
+                    ? `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-800 border border-amber-300 shadow-sm">👑 ${item.winner}</span>`
+                    : `<span class="text-slate-400 font-normal">-</span>`;
+
+                // 處理 HLTV URL 連結按鈕
+                const urlHTML = item.hltv_url 
+                    ? `<a href="${item.hltv_url}" target="_blank" class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 active:bg-indigo-200 border border-indigo-200 rounded-md transition-colors gap-1 shadow-sm">
+                        HLTV 🔗
+                       </a>`
+                    : `<span class="text-slate-400 font-normal text-xs">-</span>`;
+
+                // 條目背景交替色 (奇偶數行色差)
+                const rowBg = index % 2 === 0 ? 'bg-white' : 'bg-slate-50/60';
+
+                return `
+                    <tr class="${rowBg} hover:bg-indigo-50/30 transition-colors duration-150">
+                        <td class="p-4 text-center text-slate-500 font-semibold">${item.year || '-'}</td>
+                        <td class="p-4 font-bold text-slate-900">${item.name || '-'}</td>
+                        <td class="p-4 text-slate-500 font-mono text-xs">${item.hltv_name || '-'}</td>
+                        <td class="p-4">${winnerHTML}</td>
+                        <td class="p-4 text-slate-700 font-semibold">${item.finalist || '-'}</td>
+                        <td class="p-4 text-center">
+                            <span class="inline-block px-2.5 py-1 text-xs font-bold font-mono bg-slate-800 text-slate-100 rounded border border-slate-700 shadow-inner">
+                                ${item.score || '-'}
+                            </span>
+                        </td>
+                        <td class="p-4 text-center">${urlHTML}</td>
+                    </tr>
+                `;
+            }).join('');
+            
             document.getElementById('count').innerText = data.length;
         }
 
+        // 強大且安全的即時過濾搜尋
         document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = allData.filter(i => 
-                i.name.toLowerCase().includes(term) || 
-                i.winner.toLowerCase().includes(term) || 
-                i.finalist.toLowerCase().includes(term)
-            );
+            const term = e.target.value.toLowerCase().trim();
+            
+            if (!term) {
+                renderTable(allData);
+                return;
+            }
+
+            const filtered = allData.filter(i => {
+                const name = i.name ? String(i.name).toLowerCase() : '';
+                const hltvName = i.hltv_name ? String(i.hltv_name).toLowerCase() : '';
+                const winner = i.winner ? String(i.winner).toLowerCase() : '';
+                const finalist = i.finalist ? String(i.finalist).toLowerCase() : '';
+                
+                return name.includes(term) || 
+                       hltvName.includes(term) || 
+                       winner.includes(term) || 
+                       finalist.includes(term);
+            });
+            
             renderTable(filtered);
         });
 
+        // 初始化載入
         init();
     </script>
 </body>
