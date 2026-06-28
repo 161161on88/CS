@@ -1,6 +1,24 @@
 [
   {
     "year": "2026",
+    "name": "IEM 科隆 Major 2026",
+    "hltv_name": "IEM Cologne Major 2026",
+    "winner": "Falcons",
+    "finalist": "FURIA",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8301/iem-cologne-major-2026"
+  },
+  {
+    "year": "2026",
+    "name": "CS 亞洲邀請賽 2026",
+    "hltv_name": "CS Asia Championships 2026",
+    "winner": "Legacy",
+    "finalist": "Falcons",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8263/cs-asia-championships-2026"
+  },
+  {
+    "year": "2026",
     "name": "IEM 亞特蘭大 2026",
     "hltv_name": "IEM Atlanta 2026",
     "winner": "Natus Vincere",
