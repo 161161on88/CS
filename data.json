@@ -1,6 +1,24 @@
 [
   {
     "year": "2026",
+    "name": "BLAST 波爾圖公開賽 2026",
+    "hltv_name": "BLAST Open Porto 2026\nOverview",
+    "winner": "",
+    "finalist": "",
+    "score": "",
+    "hltv_url": "https://www.hltv.org/events/8249/blast-open-porto-2026"
+  },
+  {
+    "year": "2026",
+    "name": "EWC電競世俱杯 2026",
+    "hltv_name": "Esports World Cup 2026",
+    "winner": "Spirit",
+    "finalist": "FUT",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8261/esports-world-cup-2026"
+  },
+  {
+    "year": "2026",
     "name": "IEM 科隆 Major 2026",
     "hltv_name": "IEM Cologne Major 2026",
     "winner": "Falcons",
