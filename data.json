@@ -1,11 +1,29 @@
 [
   {
     "year": "2026",
+    "name": "StarLadder 2026 秋季賽",
+    "hltv_name": "StarSeries Fall 2026",
+    "winner": "Vitality",
+    "finalist": "Aurora",
+    "score": "3-1",
+    "hltv_url": "https://www.hltv.org/events/8057/starladder-starseries-fall-2026"
+  },
+  {
+    "year": "2026",
+    "name": "FISSURE 裂變天地 3",
+    "hltv_name": "FISSURE Playground 3",
+    "winner": "Legacy",
+    "finalist": "G2",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8266/fissure-playground-3"
+  },
+  {
+    "year": "2026",
     "name": "BLAST 波爾圖公開賽 2026",
-    "hltv_name": "BLAST Open Porto 2026\nOverview",
-    "winner": "",
-    "finalist": "",
-    "score": "",
+    "hltv_name": "BLAST Open Porto 2026\n",
+    "winner": "Spirit",
+    "finalist": "MOUZ",
+    "score": "3-1",
     "hltv_url": "https://www.hltv.org/events/8249/blast-open-porto-2026"
   },
   {
