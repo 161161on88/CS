@@ -41,8 +41,8 @@
                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
             </div>
 
-            <!-- 下拉選單列 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+            <!-- 下拉選單列 (改為 5 欄適應新增的選單) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
                 <!-- 年份 -->
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-1">📅 按年份尋找</label>
@@ -51,11 +51,19 @@
                     </select>
                 </div>
 
-                <!-- 戰隊 -->
+                <!-- 戰隊（全部決賽/晉級紀錄） -->
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊尋找</label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊尋找 (冠/亞軍)</label>
                     <select id="filterTeam" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="">全部戰隊</option>
+                    </select>
+                </div>
+
+                <!-- 冠軍戰隊 (僅奪冠紀錄) -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🥇 按冠軍戰隊尋找 (僅奪冠)</label>
+                    <select id="filterWinnerTeam" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500 border-amber-300 focus:ring-amber-500">
+                        <option value="">全部冠軍戰隊</option>
                     </select>
                 </div>
 
@@ -131,28 +139,40 @@
             }
         }
 
-        // 動態分析資料，自動將 winner/finalist 裡包含多個戰隊的字串拆分為單一戰隊選項
+        // 動態分析資料，建構「年份」、「所有戰隊」與「僅冠軍戰隊」選項
         function buildFilterOptions(data) {
             const yearSelect = document.getElementById('filterYear');
             const teamSelect = document.getElementById('filterTeam');
+            const winnerTeamSelect = document.getElementById('filterWinnerTeam');
             
             const years = new Set();
-            const teams = new Set();
+            const allTeams = new Set();
+            const winnerTeams = new Set();
             
             data.forEach(item => {
                 if (item.year) years.add(item.year.toString());
                 
-                // 拆分多戰隊字串 (支援頓號、逗號、斜線、加號)
+                // 1. 處理所有戰隊 (winner & finalist)
                 ['winner', 'finalist'].forEach(field => {
                     const val = item[field] ? String(item[field]).trim() : '';
                     if (val && val !== '-') {
                         const splitTeams = val.replace(/、|\/|\+/g, ',').split(',');
                         splitTeams.forEach(t => {
                             const cleanTeam = t.trim();
-                            if (cleanTeam) teams.add(cleanTeam);
+                            if (cleanTeam) allTeams.add(cleanTeam);
                         });
                     }
                 });
+
+                // 2. 專門提取冠軍戰隊 (僅 winner 欄位)
+                const winnerVal = item.winner ? String(item.winner).trim() : '';
+                if (winnerVal && winnerVal !== '-') {
+                    const splitWinners = winnerVal.replace(/、|\/|\+/g, ',').split(',');
+                    splitWinners.forEach(t => {
+                        const cleanTeam = t.trim();
+                        if (cleanTeam) winnerTeams.add(cleanTeam);
+                    });
+                }
             });
             
             // 重置年份選單
@@ -161,12 +181,20 @@
                 yearSelect.options.add(new Option(`${year} 年`, year));
             });
             
-            // 重置戰隊選單 (只保留乾淨的單一戰隊選項，並依字母不區分大小寫排序)
+            // 重置「所有戰隊」選單
             teamSelect.innerHTML = '<option value="">全部戰隊</option>';
-            Array.from(teams)
+            Array.from(allTeams)
                 .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
                 .forEach(team => {
                     teamSelect.options.add(new Option(team, team));
+                });
+
+            // 重置「冠軍戰隊」選單
+            winnerTeamSelect.innerHTML = '<option value="">全部冠軍戰隊</option>';
+            Array.from(winnerTeams)
+                .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+                .forEach(team => {
+                    winnerTeamSelect.options.add(new Option(`🥇 ${team}`, team));
                 });
         }
 
@@ -174,6 +202,7 @@
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             const selectedYear = document.getElementById('filterYear').value;
             const selectedTeam = document.getElementById('filterTeam').value;
+            const selectedWinnerTeam = document.getElementById('filterWinnerTeam').value;
             const selectedType = document.getElementById('filterType').value;
 
             const filtered = allData.filter(item => {
@@ -193,7 +222,7 @@
                     return false;
                 }
 
-                // 3. 戰隊過濾 (使用包含比對，支援多隊並列/通關的比賽紀錄)
+                // 3. 一般戰隊過濾 (冠亞軍或晉級隊伍皆可)
                 if (selectedTeam) {
                     const winnerStr = item.winner ? String(item.winner) : '';
                     const finalistStr = item.finalist ? String(item.finalist) : '';
@@ -204,7 +233,13 @@
                     if (!winnerMatch && !finalistMatch) return false;
                 }
 
-                // 4. 賽事主辦與 Major 獨立過濾
+                // 4. 專門奪冠戰隊過濾 (僅限 Winner 欄位包含該隊)
+                if (selectedWinnerTeam) {
+                    const winnerStr = item.winner ? String(item.winner) : '';
+                    if (!winnerStr.includes(selectedWinnerTeam)) return false;
+                }
+
+                // 5. 賽事主辦與 Major 獨立過濾
                 if (selectedType) {
                     const combinedName = ((item.name || '') + ' ' + (item.hltv_name || '')).toLowerCase();
                     
@@ -213,7 +248,6 @@
                     if (selectedType === 'iem' && !combinedName.includes('iem')) return false;
                     if (selectedType === 'pgl' && !combinedName.includes('pgl')) return false;
                     
-                    // 🏆 Major 判斷：優先採用手動標記 is_major，其次匹配名稱中的 major 字眼
                     if (selectedType === 'major') {
                         const isMajorFlag = item.is_major === true;
                         const hasMajorInName = combinedName.includes('major');
@@ -272,15 +306,19 @@
             document.getElementById('count').innerText = data.length;
         }
 
+        // 綁定所有過濾器事件
         document.getElementById('searchInput').addEventListener('input', applyFilters);
         document.getElementById('filterYear').addEventListener('change', applyFilters);
         document.getElementById('filterTeam').addEventListener('change', applyFilters);
+        document.getElementById('filterWinnerTeam').addEventListener('change', applyFilters);
         document.getElementById('filterType').addEventListener('change', applyFilters);
 
+        // 重置按鈕事件
         document.getElementById('resetBtn').addEventListener('click', () => {
             document.getElementById('searchInput').value = '';
             document.getElementById('filterYear').value = '';
             document.getElementById('filterTeam').value = '';
+            document.getElementById('filterWinnerTeam').value = '';
             document.getElementById('filterType').value = '';
             applyFilters();
         });
