@@ -131,6 +131,7 @@
             }
         }
 
+        // 動態分析資料，自動將 winner/finalist 裡包含多個戰隊的字串拆分為單一戰隊選項
         function buildFilterOptions(data) {
             const yearSelect = document.getElementById('filterYear');
             const teamSelect = document.getElementById('filterTeam');
@@ -139,18 +140,34 @@
             const teams = new Set();
             
             data.forEach(item => {
-                if(item.year) years.add(item.year.toString());
-                if(item.winner && item.winner.trim() !== '' && item.winner !== '-') teams.add(item.winner.trim());
-                if(item.finalist && item.finalist.trim() !== '' && item.finalist !== '-') teams.add(item.finalist.trim());
+                if (item.year) years.add(item.year.toString());
+                
+                // 拆分多戰隊字串 (支援頓號、逗號、斜線、加號)
+                ['winner', 'finalist'].forEach(field => {
+                    const val = item[field] ? String(item[field]).trim() : '';
+                    if (val && val !== '-') {
+                        const splitTeams = val.replace(/、|\/|\+/g, ',').split(',');
+                        splitTeams.forEach(t => {
+                            const cleanTeam = t.trim();
+                            if (cleanTeam) teams.add(cleanTeam);
+                        });
+                    }
+                });
             });
             
+            // 重置年份選單
+            yearSelect.innerHTML = '<option value="">全部年份</option>';
             Array.from(years).sort((a,b) => b - a).forEach(year => {
                 yearSelect.options.add(new Option(`${year} 年`, year));
             });
             
-            Array.from(teams).sort((a, b) => a.localeCompare(b)).forEach(team => {
-                teamSelect.options.add(new Option(team, team));
-            });
+            // 重置戰隊選單 (只保留乾淨的單一戰隊選項，並依字母不區分大小寫排序)
+            teamSelect.innerHTML = '<option value="">全部戰隊</option>';
+            Array.from(teams)
+                .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+                .forEach(team => {
+                    teamSelect.options.add(new Option(team, team));
+                });
         }
 
         function applyFilters() {
@@ -176,10 +193,14 @@
                     return false;
                 }
 
-                // 3. 戰隊過濾
+                // 3. 戰隊過濾 (使用包含比對，支援多隊並列/通關的比賽紀錄)
                 if (selectedTeam) {
-                    const winnerMatch = item.winner && item.winner.trim() === selectedTeam;
-                    const finalistMatch = item.finalist && item.finalist.trim() === selectedTeam;
+                    const winnerStr = item.winner ? String(item.winner) : '';
+                    const finalistStr = item.finalist ? String(item.finalist) : '';
+                    
+                    const winnerMatch = winnerStr.includes(selectedTeam);
+                    const finalistMatch = finalistStr.includes(selectedTeam);
+                    
                     if (!winnerMatch && !finalistMatch) return false;
                 }
 
