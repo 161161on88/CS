@@ -51,9 +51,9 @@
                     </select>
                 </div>
 
-                <!-- 戰隊過濾（包含奪冠快篩） -->
+                <!-- 戰隊過濾 -->
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊/榮譽尋找</label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊尋找</label>
                     <select id="filterTeam" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="">全部戰隊</option>
                         <!-- 由 JS 動態生成所有戰隊清單 -->
@@ -136,7 +136,7 @@
             }
         }
 
-        // 動態分析 JSON 資料，並自動把「年份」和「戰隊」塞進下拉選單，避免硬編碼
+        // 動態分析 JSON 資料，並自動把「年份」和「戰隊」塞進下拉選單
         function buildFilterOptions(data) {
             const yearSelect = document.getElementById('filterYear');
             const teamSelect = document.getElementById('filterTeam');
@@ -146,8 +146,8 @@
             
             data.forEach(item => {
                 if(item.year) years.add(item.year.toString());
-                if(item.winner && item.winner !== '-') teams.add(item.winner);
-                if(item.finalist && item.finalist !== '-') teams.add(item.finalist);
+                if(item.winner && item.winner.trim() !== '' && item.winner !== '-') teams.add(item.winner.trim());
+                if(item.finalist && item.finalist.trim() !== '' && item.finalist !== '-') teams.add(item.finalist.trim());
             });
             
             // 填入年份 (從新到舊排序)
@@ -155,33 +155,17 @@
                 yearSelect.options.add(new Option(`${year} 年`, year));
             });
             
-            // 填入戰隊選項 (建立一般參與和奪冠快篩)
-            const sortedTeams = Array.from(teams).sort();
-            
-            // 先加一組「只看奪冠」的分組
-            const optGroupWinner = document.createElement('optgroup');
-            optGroupWinner.label = "🏆 只看該隊奪冠紀錄";
-            sortedTeams.forEach(team => {
-                const opt = new Option(`🥇 ${team} (冠軍)`, `winner:${team}`);
-                optGroupWinner.appendChild(opt);
+            // 填入所有出現過的戰隊 (依 Alphabet 字母排序)
+            Array.from(teams).sort((a, b) => a.localeCompare(b)).forEach(team => {
+                teamSelect.options.add(new Option(team, team));
             });
-            teamSelect.appendChild(optGroupWinner);
-
-            // 再加一組「只要有進決賽」的分組
-            const optGroupAll = document.createElement('optgroup');
-            optGroupAll.label = "⚔️ 該隊有進決賽 (冠/亞軍)";
-            sortedTeams.forEach(team => {
-                const opt = new Option(`👥 ${team} (決賽隊伍)`, `any:${team}`);
-                optGroupAll.appendChild(opt);
-            });
-            teamSelect.appendChild(optGroupAll);
         }
 
         // 核心：複合條件過濾器邏輯
         function applyFilters() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             const selectedYear = document.getElementById('filterYear').value;
-            const selectedTeamOpt = document.getElementById('filterTeam').value; // 格式可能為 "winner:Team" 或 "any:Team"
+            const selectedTeam = document.getElementById('filterTeam').value;
             const selectedType = document.getElementById('filterType').value;
 
             const filtered = allData.filter(item => {
@@ -200,13 +184,11 @@
                     return false;
                 }
 
-                // 3. 戰隊高級過濾
-                if (selectedTeamOpt) {
-                    const [mode, teamName] = selectedTeamOpt.split(':');
-                    if (mode === 'winner' && item.winner !== teamName) {
-                        return false;
-                    }
-                    if (mode === 'any' && item.winner !== teamName && item.finalist !== teamName) {
+                // 3. 戰隊過濾（只要是冠軍或亞軍即符合條件）
+                if (selectedTeam) {
+                    const winnerMatch = item.winner && item.winner.trim() === selectedTeam;
+                    const finalistMatch = item.finalist && item.finalist.trim() === selectedTeam;
+                    if (!winnerMatch && !finalistMatch) {
                         return false;
                     }
                 }
