@@ -136,13 +136,14 @@
     "hltv_url": "https://www.hltv.org/events/8248/blast-open-rotterdam-2026"
   },
   {
-    "year": "2026",
-    "name": "EPL S23",
+    "year": 2026,
+    "name": "ESL EPL S23",
     "hltv_name": "ESL Pro League Season 23 Finals",
     "winner": "Natus Vincere",
     "finalist": "Aurora",
     "score": "3-1",
-    "hltv_url": "https://www.hltv.org/events/8413/esl-pro-league-season-23-finals"
+    "hltv_url": "https://www.hltv.org/events/8413/esl-pro-league-season-23-finals",
+    "is_major": false
   },
   {
     "year": "2026",
@@ -218,13 +219,14 @@
     "hltv_url": "https://www.hltv.org/events/8027/cs-asia-championships-2025"
   },
   {
-    "year": "2025",
-    "name": "EPL S22",
+    "year": 2025,
+    "name": "ESL EPL S22",
     "hltv_name": "ESL Pro League Season 22",
     "winner": "Vitality",
     "finalist": "Falcons",
     "score": "3-0",
-    "hltv_url": "https://www.hltv.org/events/8040/esl-pro-league-season-22"
+    "hltv_url": "https://www.hltv.org/events/8040/esl-pro-league-season-22",
+    "is_major": false
   },
   {
     "year": "2025",
