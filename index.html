@@ -31,9 +31,9 @@
             </div>
         </div>
 
-        <!-- 複合式搜尋與多功能過濾面板 -->
+        <!-- 多功能過濾面板 -->
         <div class="mt-6 bg-white p-6 rounded-xl shadow-md border border-slate-200 space-y-4">
-            <!-- 第一排：關鍵字搜尋 -->
+            <!-- 關鍵字搜尋 -->
             <div class="relative w-full">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">🔍</span>
                 <input type="text" id="searchInput" 
@@ -41,9 +41,9 @@
                        class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
             </div>
 
-            <!-- 第二排：各類條件高級尋找（下拉選單） -->
+            <!-- 下拉選單列 -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
-                <!-- 年份過濾 -->
+                <!-- 年份 -->
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-1">📅 按年份尋找</label>
                     <select id="filterYear" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
@@ -51,27 +51,28 @@
                     </select>
                 </div>
 
-                <!-- 戰隊過濾 -->
+                <!-- 戰隊 -->
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🛡️ 按戰隊尋找</label>
                     <select id="filterTeam" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="">全部戰隊</option>
-                        <!-- 由 JS 動態生成所有戰隊清單 -->
                     </select>
                 </div>
 
-                <!-- 賽事主辦方/級別過濾 -->
+                <!-- 賽事主辦 / 類型 -->
                 <div>
-                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🏆 賽事類型/主辦</label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">🏆 賽事主辦 / 類型</label>
                     <select id="filterType" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-indigo-500">
-                        <option value="">全部類型</option>
-                        <option value="major">Major (特級錦標賽)</option>
+                        <option value="">全部主辦與類型</option>
                         <option value="blast">BLAST 系列賽</option>
-                        <option value="iem">IEM / ESL 系列賽</option>
+                        <option value="esl">ESL 系列賽 (含 EPL)</option>
+                        <option value="iem">IEM 系列賽</option>
+                        <option value="pgl">PGL 系列賽</option>
+                        <option value="major">🏆 僅看 Major (特級錦標賽)</option>
                     </select>
                 </div>
 
-                <!-- 重置按鈕 -->
+                <!-- 重置 -->
                 <div>
                     <button id="resetBtn" class="w-full py-2.5 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-700 font-bold text-sm rounded-lg transition-colors shadow-sm flex items-center justify-center gap-1">
                         🔄 清除所有條件
@@ -101,7 +102,6 @@
                 </table>
             </div>
             
-            <!-- 無資料時顯示 -->
             <div id="noDataMessage" class="hidden py-12 text-center text-slate-400 font-medium">
                 ❌ 找不到符合篩選條件的賽事資料
             </div>
@@ -116,13 +116,8 @@
                 const response = await fetch('data.json');
                 allData = await response.json();
                 
-                // 初始化基礎數據
                 document.getElementById('totalCount').innerText = allData.length;
-                
-                // 動態建構下拉選單選項
                 buildFilterOptions(allData);
-                
-                // 初次渲染全資料
                 applyFilters();
             } catch (err) {
                 console.error("無法加載 data.json", err);
@@ -136,7 +131,6 @@
             }
         }
 
-        // 動態分析 JSON 資料，並自動把「年份」和「戰隊」塞進下拉選單
         function buildFilterOptions(data) {
             const yearSelect = document.getElementById('filterYear');
             const teamSelect = document.getElementById('filterTeam');
@@ -150,18 +144,15 @@
                 if(item.finalist && item.finalist.trim() !== '' && item.finalist !== '-') teams.add(item.finalist.trim());
             });
             
-            // 填入年份 (從新到舊排序)
             Array.from(years).sort((a,b) => b - a).forEach(year => {
                 yearSelect.options.add(new Option(`${year} 年`, year));
             });
             
-            // 填入所有出現過的戰隊 (依 Alphabet 字母排序)
             Array.from(teams).sort((a, b) => a.localeCompare(b)).forEach(team => {
                 teamSelect.options.add(new Option(team, team));
             });
         }
 
-        // 核心：複合條件過濾器邏輯
         function applyFilters() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
             const selectedYear = document.getElementById('filterYear').value;
@@ -169,36 +160,44 @@
             const selectedType = document.getElementById('filterType').value;
 
             const filtered = allData.filter(item => {
-                // 1. 關鍵字搜尋過濾
+                // 1. 關鍵字搜尋
                 if (searchTerm) {
                     const name = item.name ? String(item.name).toLowerCase() : '';
                     const hltvName = item.hltv_name ? String(item.hltv_name).toLowerCase() : '';
                     const winner = item.winner ? String(item.winner).toLowerCase() : '';
                     const finalist = item.finalist ? String(item.finalist).toLowerCase() : '';
-                    const matchKeyword = name.includes(searchTerm) || hltvName.includes(searchTerm) || winner.includes(searchTerm) || finalist.includes(searchTerm);
-                    if (!matchKeyword) return false;
-                }
-
-                // 2. 年份下拉過濾
-                if (selectedYear && item.year && item.year.toString() !== selectedYear) {
-                    return false;
-                }
-
-                // 3. 戰隊過濾（只要是冠軍或亞軍即符合條件）
-                if (selectedTeam) {
-                    const winnerMatch = item.winner && item.winner.trim() === selectedTeam;
-                    const finalistMatch = item.finalist && item.finalist.trim() === selectedTeam;
-                    if (!winnerMatch && !finalistMatch) {
+                    if (!name.includes(searchTerm) && !hltvName.includes(searchTerm) && !winner.includes(searchTerm) && !finalist.includes(searchTerm)) {
                         return false;
                     }
                 }
 
-                // 4. 賽事主辦方類型精準模糊過濾
+                // 2. 年份過濾
+                if (selectedYear && item.year && item.year.toString() !== selectedYear) {
+                    return false;
+                }
+
+                // 3. 戰隊過濾
+                if (selectedTeam) {
+                    const winnerMatch = item.winner && item.winner.trim() === selectedTeam;
+                    const finalistMatch = item.finalist && item.finalist.trim() === selectedTeam;
+                    if (!winnerMatch && !finalistMatch) return false;
+                }
+
+                // 4. 賽事主辦與 Major 獨立過濾
                 if (selectedType) {
                     const combinedName = ((item.name || '') + ' ' + (item.hltv_name || '')).toLowerCase();
-                    if (selectedType === 'major' && !combinedName.includes('major')) return false;
+                    
                     if (selectedType === 'blast' && !combinedName.includes('blast')) return false;
-                    if (selectedType === 'iem' && !combinedName.includes('iem') && !combinedName.includes('esl')) return false;
+                    if (selectedType === 'esl' && !combinedName.includes('esl')) return false;
+                    if (selectedType === 'iem' && !combinedName.includes('iem')) return false;
+                    if (selectedType === 'pgl' && !combinedName.includes('pgl')) return false;
+                    
+                    // 🏆 Major 判斷：優先採用手動標記 is_major，其次匹配名稱中的 major 字眼
+                    if (selectedType === 'major') {
+                        const isMajorFlag = item.is_major === true;
+                        const hasMajorInName = combinedName.includes('major');
+                        if (!isMajorFlag && !hasMajorInName) return false;
+                    }
                 }
 
                 return true;
@@ -207,7 +206,6 @@
             renderTable(filtered);
         }
 
-        // 繪製/渲染表格
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
             const noDataMessage = document.getElementById('noDataMessage');
@@ -253,13 +251,11 @@
             document.getElementById('count').innerText = data.length;
         }
 
-        // 綁定監聽事件 (當任何輸入或選單改變時，即時觸發過濾)
         document.getElementById('searchInput').addEventListener('input', applyFilters);
         document.getElementById('filterYear').addEventListener('change', applyFilters);
         document.getElementById('filterTeam').addEventListener('change', applyFilters);
         document.getElementById('filterType').addEventListener('change', applyFilters);
 
-        // 重置按鈕事件
         document.getElementById('resetBtn').addEventListener('click', () => {
             document.getElementById('searchInput').value = '';
             document.getElementById('filterYear').value = '';
@@ -268,7 +264,6 @@
             applyFilters();
         });
 
-        // 初始化
         init();
     </script>
 </body>
