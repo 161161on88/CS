@@ -63,13 +63,14 @@
     "hltv_url": "https://www.hltv.org/events/8261/esports-world-cup-2026"
   },
   {
-    "year": "2026",
+    "year": 2026,
     "name": "IEM 科隆 Major 2026",
     "hltv_name": "IEM Cologne Major 2026",
     "winner": "Falcons",
     "finalist": "FURIA",
     "score": "3-0",
-    "hltv_url": "https://www.hltv.org/events/8301/iem-cologne-major-2026"
+    "hltv_url": "https://www.hltv.org/events/8301/iem-cologne-major-2026",
+    "is_major": true
   },
   {
     "year": "2026",
@@ -171,13 +172,14 @@
     "hltv_url": "https://www.hltv.org/events/8246/blast-bounty-2026-season-1-finals"
   },
   {
-    "year": "2025",
+    "year": 2025,
     "name": "StarLadder 布達佩斯 Major 2025",
     "hltv_name": "StarLadder Budapest Major 2025",
     "winner": "Vitality",
     "finalist": "FaZe",
     "score": "3-1",
-    "hltv_url": "https://www.hltv.org/events/8042/starladder-budapest-major-2025"
+    "hltv_url": "https://www.hltv.org/events/8042/starladder-budapest-major-2025",
+    "is_major": true
   },
   {
     "year": "2025",
@@ -279,13 +281,14 @@
     "hltv_url": "https://www.hltv.org/events/8063/fissure-playground-1"
   },
   {
-    "year": "2025",
+    "year": 2025,
     "name": "BLAST.tv 奧斯汀 Major 2025",
     "hltv_name": "BLAST.tv Austin Major 2025",
     "winner": "Vitality",
     "finalist": "MongolZ",
     "score": "2-1",
-    "hltv_url": "https://www.hltv.org/events/7902/blasttv-austin-major-2025"
+    "hltv_url": "https://www.hltv.org/events/7902/blasttv-austin-major-2025",
+    "is_major": true
   },
   {
     "year": "2025",
@@ -369,13 +372,14 @@
     "hltv_url": "https://www.hltv.org/events/7909/blast-bounty-2025-season-1-finals"
   },
   {
-    "year": "2024",
+    "year": 2024,
     "name": "完美世界 上海 Major 2024",
     "hltv_name": "Perfect World Shanghai Major 2024",
     "winner": "Spirit",
     "finalist": "FaZe",
     "score": "2-1",
-    "hltv_url": "https://www.hltv.org/events/7524/perfect-world-shanghai-major-2024"
+    "hltv_url": "https://www.hltv.org/events/7524/perfect-world-shanghai-major-2024",
+    "is_major": true
   },
   {
     "year": "2024",
@@ -504,13 +508,14 @@
     "hltv_url": "https://www.hltv.org/events/7437/iem-chengdu-2024"
   },
   {
-    "year": "2024",
+    "year": 2024,
     "name": "PGL CS2 Major 哥本哈根 2024",
     "hltv_name": "PGL CS2 Major Copenhagen 2024",
     "winner": "Natus Vincere",
     "finalist": "FaZe",
     "score": "2-1",
-    "hltv_url": "https://www.hltv.org/events/7148/pgl-cs2-major-copenhagen-2024"
+    "hltv_url": "https://www.hltv.org/events/7148/pgl-cs2-major-copenhagen-2024",
+    "is_major": true
   },
   {
     "year": "2024",
@@ -639,13 +644,14 @@
     "hltv_url": "https://www.hltv.org/events/6861/iem-dallas-2023"
   },
   {
-    "year": "2023",
+    "year": 2023,
     "name": "BLAST 巴黎 Major 2023",
     "hltv_name": "BLAST.tv Paris Major 2023",
     "winner": "Vitality",
     "finalist": "GamerLegion",
     "score": "2-0",
-    "hltv_url": "https://www.hltv.org/events/6793/blasttv-paris-major-2023"
+    "hltv_url": "https://www.hltv.org/events/6793/blasttv-paris-major-2023",
+    "is_major": true
   },
   {
     "year": "2023",
@@ -711,13 +717,14 @@
     "hltv_url": "https://www.hltv.org/events/6621/elisa-masters-espoo-2022"
   },
   {
-    "year": "2022",
+    "year": 2022,
     "name": "IEM 里約 Major 2022",
     "hltv_name": "IEM Rio Major 2022",
     "winner": "Outsiders",
     "finalist": "Heroic",
     "score": "2-0",
-    "hltv_url": "https://www.hltv.org/events/6586/iem-rio-major-2022"
+    "hltv_url": "https://www.hltv.org/events/6586/iem-rio-major-2022",
+    "is_major": true
   },
   {
     "year": "2022",
@@ -783,13 +790,14 @@
     "hltv_url": "https://www.hltv.org/events/6138/iem-dallas-2022"
   },
   {
-    "year": "2022",
+    "year": 2022,
     "name": "2022 PGL 安特衛普 Major",
     "hltv_name": "PGL Major Antwerp 2022",
     "winner": "FaZe",
     "finalist": "Natus Vincere",
     "score": "2-0",
-    "hltv_url": "https://www.hltv.org/events/6372/pgl-major-antwerp-2022"
+    "hltv_url": "https://www.hltv.org/events/6372/pgl-major-antwerp-2022",
+    "is_major": true
   },
   {
     "year": "2022",
