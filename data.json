@@ -1,12 +1,43 @@
 [
   {
-    "year": "2026",
-    "name": "PGL 布加勒斯特大師賽 2026",
-    "hltv_name": "PGL Masters Bucharest 2026",
+    "year": 2026,
+    "name": "PGL 新加坡 Major 2026",
+    "hltv_name": "PGL Major Singapore 2026",
     "winner": "",
     "finalist": "",
     "score": "",
-    "hltv_url": "https://www.hltv.org/events/8050/pgl-masters-bucharest-2026"
+    "hltv_url": "",
+    "is_major": true
+  },
+  {
+    "year": 2026,
+    "name": "BLAST 對抗賽 2026 S2",
+    "hltv_name": "BLAST Rivals 2026 Season 2",
+    "winner": "FURIA",
+    "finalist": "Spirit",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8251/blast-rivals-2026-season-2",
+    "is_major": false
+  },
+  {
+    "year": 2026,
+    "name": "IEM 北京 2026",
+    "hltv_name": "IEM Beijing 2026",
+    "winner": "MOUZ",
+    "finalist": "The MongolZ",
+    "score": "3-0",
+    "hltv_url": "https://www.hltv.org/events/8245/iem-beijing-2026",
+    "is_major": false
+  },
+  {
+    "year": 2026,
+    "name": "PGL 布加勒斯特大師賽 2026",
+    "hltv_name": "PGL Masters Bucharest 2026",
+    "winner": "FURIA",
+    "finalist": "Nemiga",
+    "score": "3-2",
+    "hltv_url": "https://www.hltv.org/events/8050/pgl-masters-bucharest-2026",
+    "is_major": false
   },
   {
     "year": "2026",
