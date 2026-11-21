@@ -250,7 +250,7 @@
     "hltv_url": "https://www.hltv.org/events/8027/cs-asia-championships-2025"
   },
   {
-    "year": 2025,
+    "year": "2025",
     "name": "ESL EPL S22",
     "hltv_name": "ESL Pro League Season 22",
     "winner": "Vitality",
@@ -264,7 +264,7 @@
     "name": "FISSURE 裂變天地 2",
     "hltv_name": "FISSURE Playground 2",
     "winner": "FURIA",
-    "finalist": "MongolZ",
+    "finalist": "The MongolZ",
     "score": "3-2",
     "hltv_url": "https://www.hltv.org/events/8064/fissure-playground-2"
   },
@@ -281,7 +281,7 @@
     "year": "2025",
     "name": "電競世界杯 2025",
     "hltv_name": "Esports World Cup 2025",
-    "winner": "MongolZ",
+    "winner": "The MongolZ",
     "finalist": "Aurora",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/8039/esports-world-cup-2025"
@@ -291,7 +291,7 @@
     "name": "BLAST 賞金賽 第2賽季",
     "hltv_name": "BLAST Bounty 2025 Season 2 Finals",
     "winner": "Spirit",
-    "finalist": "MongolZ",
+    "finalist": "The MongolZ",
     "score": "3-0",
     "hltv_url": "https://www.hltv.org/events/7910/blast-bounty-2025-season-2-finals"
   },
@@ -314,11 +314,11 @@
     "hltv_url": "https://www.hltv.org/events/8063/fissure-playground-1"
   },
   {
-    "year": 2025,
+    "year": "2025",
     "name": "BLAST.tv 奧斯汀 Major 2025",
     "hltv_name": "BLAST.tv Austin Major 2025",
     "winner": "Vitality",
-    "finalist": "MongolZ",
+    "finalist": "The MongolZ",
     "score": "2-1",
     "hltv_url": "https://www.hltv.org/events/7902/blasttv-austin-major-2025",
     "is_major": true
@@ -427,7 +427,7 @@
     "year": "2024",
     "name": "TP 世界錦標賽 2024",
     "hltv_name": "Thunderpick World Championship 2024",
-    "winner": "MongolZ",
+    "winner": "The MongolZ",
     "finalist": "HEROIC",
     "score": "3-1",
     "hltv_url": "https://www.hltv.org/events/7694/thunderpick-world-championship-2024-finals"
@@ -481,7 +481,7 @@
     "year": "2024",
     "name": "BLAST Premier 秋季小組賽 2024",
     "hltv_name": "BLAST Premier Fall Groups 2024",
-    "winner": "Liquid、G2 、Vitality 、Spirit",
+    "winner": "Team Liquid、G2、Vitality、Spirit",
     "finalist": "-",
     "score": "-",
     "hltv_url": "https://www.hltv.org/events/7554/blast-premier-fall-groups-2024"
@@ -717,7 +717,7 @@
     "year": "2023",
     "name": "BLAST Premier 2023春季小組賽",
     "hltv_name": "BLAST Premier: Spring Final 2023",
-    "winner": "G2、FaZe 、Vitality",
+    "winner": "G2、FaZe、Vitality",
     "finalist": "-",
     "score": "-",
     "hltv_url": "https://www.hltv.org/events/6970/blast-premier-spring-groups-2023"
@@ -735,7 +735,7 @@
     "year": "2022",
     "name": "BLAST Premier 秋季決賽 2022",
     "hltv_name": "BLAST Premier Fall Final 2022",
-    "winner": "Heroic",
+    "winner": "HEROIC",
     "finalist": "FaZe",
     "score": "2-1",
     "hltv_url": "https://www.hltv.org/events/6348/blast-premier-fall-final-2022"
@@ -754,7 +754,7 @@
     "name": "IEM 里約 Major 2022",
     "hltv_name": "IEM Rio Major 2022",
     "winner": "Outsiders",
-    "finalist": "Heroic",
+    "finalist": "HEROIC",
     "score": "2-0",
     "hltv_url": "https://www.hltv.org/events/6586/iem-rio-major-2022",
     "is_major": true
@@ -772,7 +772,7 @@
     "year": "2022",
     "name": "BLAST Premier 秋季小組賽 2022",
     "hltv_name": "BLAST Premier Fall Groups 2022",
-    "winner": "NaVi、Liquid、OG",
+    "winner": "Natus Vincere、Team Liquid、OG",
     "finalist": "-",
     "score": "-",
     "hltv_url": "https://www.hltv.org/events/6346/blast-premier-fall-groups-2022"
@@ -823,7 +823,7 @@
     "hltv_url": "https://www.hltv.org/events/6138/iem-dallas-2022"
   },
   {
-    "year": 2022,
+    "year": "2022",
     "name": "2022 PGL 安特衛普 Major",
     "hltv_name": "PGL Major Antwerp 2022",
     "winner": "FaZe",
